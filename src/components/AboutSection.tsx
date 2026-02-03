@@ -1,86 +1,117 @@
-import { Code2, Database, Server, Zap } from "lucide-react";
+import { Briefcase, GraduationCap, Heart, Target, Download, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const highlights = [
+const infoCards = [
   {
-    icon: Server,
-    title: "Backend Development",
-    description: "Building robust server-side applications with Python and Django",
+    title: "CURRENT ROLE",
+    value: "Python Developer Intern",
+    subValue: "Sria Infotech Pvt Ltd",
+    icon: Briefcase,
+    iconColor: "text-slate-900",
+    bgColor: "bg-slate-50",
   },
   {
-    icon: Database,
-    title: "Database Design",
-    description: "Designing efficient database schemas with MySQL and Django ORM",
+    title: "EDUCATION",
+    value: "MCA Graduate",
+    subValue: "Aurora's PG College",
+    icon: GraduationCap,
+    iconColor: "text-indigo-600",
+    bgColor: "bg-indigo-50/50",
   },
   {
-    icon: Code2,
-    title: "API Development",
-    description: "Creating RESTful APIs with proper validation and documentation",
+    title: "FOCUS",
+    value: "Backend Systems",
+    subValue: "Django & REST APIs",
+    icon: Target,
+    iconColor: "text-slate-600",
+    bgColor: "bg-slate-100/50",
   },
   {
-    icon: Zap,
-    title: "Problem Solving",
-    description: "Debugging and optimizing code for better performance",
+    title: "PASSION",
+    value: "Clean Code",
+    subValue: "Scalable Solutions",
+    icon: Heart,
+    iconColor: "text-rose-600",
+    bgColor: "bg-rose-50/50",
   },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-gradient-hero">
+    <section id="about" className="py-0 md:py-10 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="flex items-center gap-4 mb-12">
-            <span className="text-primary font-mono text-sm">01.</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold">About Me</h2>
-            <div className="flex-1 h-px bg-border max-w-xs" />
-          </div>
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Left Column: Content */}
+            <div className="space-y-6 animate-reveal">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/50 text-blue-700 text-[10px] font-black uppercase tracking-[0.2em]">
+                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 animate-pulse" />
+                PROFESSIONAL BIO
+              </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Bio Text */}
-            <div className="space-y-6">
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Hello! I'm Durga Prasad, a passionate Python Developer based in Hyderabad, India. 
-                I specialize in building backend systems that are not just functional, but 
-                <span className="text-primary"> scalable, secure, and maintainable</span>.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                My journey in tech started with a curiosity for how things work behind the scenes. 
-                Today, I channel that curiosity into creating enterprise-grade applications using 
-                Django, REST frameworks, and modern development practices.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Currently, I'm working as a <span className="text-primary">Python Developer Intern at Sria Infotech</span>, 
-                where I develop backend modules, integrate APIs, and collaborate with cross-functional 
-                teams to deliver production-ready solutions.
-              </p>
+              <h2 className="text-4xl md:text-6xl font-black font-heading leading-none text-gray-900 tracking-tighter">
+                Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500 ">Robust</span> Backend Systems.
+              </h2>
 
-              {/* Quick Facts */}
-              <div className="pt-6">
-                <h3 className="font-heading text-xl font-semibold mb-4">Education</h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary mt-1.5">▹</span>
-                    <span><strong className="text-foreground">MCA</strong> - Aurora's PG College (CGPA: 7.7)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary mt-1.5">▹</span>
-                    <span><strong className="text-foreground">B.Sc</strong> - Pragathi Degree College (CGPA: 8.65)</span>
-                  </li>
-                </ul>
+              <div className="space-y-4 text-gray-500 text-base md:text-lg leading-relaxed font-medium">
+                <p>
+                  I'm a Python Developer based in Hyderabad, specializing in the design and implementation of 
+                  enterprise-grade architectures. My focus lies at the intersection of performance and scalability.
+                </p>
+                <p>
+                  At Sria Infotech, I engineer scalable APIs and manage complex database operations using 
+                  <span className="text-gray-900 font-bold"> Django & REST frameworks</span>. I believe in clean code 
+                  as a foundation for long-term project success.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Button 
+                  className="bg-gray-900 hover:bg-black text-white px-8 h-12 rounded-2xl flex items-center gap-2 shadow-premium transition-all hover:scale-105 active:scale-95"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/resume.pdf'; // Ensure the file is in public/resume.pdf
+                    link.download = 'G_Durga_Prasad_CV.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
+                  <Download className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">Download CV</span>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-gray-200 hover:border-gray-900 text-gray-700 px-8 h-12 rounded-2xl flex items-center gap-2 transition-all hover:bg-gray-50 active:scale-95" 
+                  onClick={() => window.open("https://www.linkedin.com/in/g-durga-prasad-a65b3a25b")}
+                >
+                  <Linkedin className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">LinkedIn</span>
+                </Button>
               </div>
             </div>
 
-            {/* Highlight Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {highlights.map((item, index) => (
+            {/* Right Column: Grid of Cards */}
+            <div className="grid sm:grid-cols-2 gap-4 pt-8 lg:pt-0">
+              {infoCards.map((card, idx) => (
                 <div
-                  key={item.title}
-                  className="group p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-300 hover:glow-subtle"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  key={card.title}
+                  className={`p-6 rounded-[2rem] bg-white border border-gray-100 shadow-soft transition-all duration-500 hover:shadow-premium hover-lift animate-reveal stagger-${(idx % 4) + 1}`}
                 >
-                  <item.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-                  <h3 className="font-heading font-semibold mb-2 text-foreground">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  <div className={`w-12 h-12 rounded-2xl ${card.bgColor} flex items-center justify-center mb-5`}>
+                    <card.icon className={`w-6 h-6 ${card.iconColor}`} />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-[10px] font-black text-gray-400 tracking-[0.2em] uppercase">
+                      {card.title}
+                    </p>
+                    <h3 className="text-lg font-extrabold text-gray-900 leading-tight">
+                      {card.value}
+                    </h3>
+                    <p className="text-xs font-bold text-gray-500">
+                      {card.subValue}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

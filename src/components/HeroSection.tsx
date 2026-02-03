@@ -1,82 +1,97 @@
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { Code2, Database, MapPin, Sparkles, ArrowRight, MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const techPills = [
+  { name: "Python" },
+  { name: "Django" },
+  { name: "REST APIs" },
+  { name: "MySQL" },
+  { name: "Git" },
+];
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-hero">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+    <section id="home" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden bg-white pt-24 pb-0">
+      {/* Background Grid Pattern - High Density */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      {/* Refined Ambient Accents */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#3b82f605,transparent_50%)]" />
+
+      {/* Floating Elements (Visual Decoration) */}
+      <div className="absolute right-[10%] top-[25%] p-4 rounded-3xl bg-white shadow-premium border border-gray-100/50 animate-float hidden lg:block">
+        <Code2 className="w-8 h-8 text-blue-600" />
+      </div>
+      <div className="absolute left-[8%] bottom-[30%] p-4 rounded-3xl bg-white shadow-premium border border-gray-100/50 animate-float hidden lg:block" style={{ animationDelay: '2s' }}>
+        <Database className="w-8 h-8 text-emerald-600" />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(100,255,218,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(100,255,218,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* Status Badge */}
+          <div className="flex justify-center animate-reveal stagger-1">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/50 text-blue-700 border border-blue-100/50 text-[11px] font-black uppercase tracking-widest">
+              <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+              Available for opportunities
+            </div>
+          </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Greeting */}
-          <p className="text-primary font-mono text-sm md:text-base mb-6 animate-fade-in opacity-0">
-            Hi, my name is
-          </p>
+          {/* Main Headline */}
+          <div className="space-y-4 animate-reveal stagger-2">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-gray-900 leading-[1.1] md:leading-[0.9] tracking-tighter">
+              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">Durga Prasad</span>
+            </h1>
+            <p className="text-xl md:text-2xl font-bold text-gray-500 tracking-tight">
+              Python Developer & Backend Engineer
+            </p>
+          </div>
 
-          {/* Name */}
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-slide-up opacity-0 stagger-1">
-            G. Durga Prasad
-          </h1>
+          {/* Description */}
+          <div className="space-y-6 animate-reveal stagger-3">
+            <p className="text-gray-500 text-base md:text-xl max-w-2xl mx-auto leading-relaxed font-medium px-4 sm:px-0">
+              I build scalable architectures with <span className="text-gray-900 font-bold">Django & Fast API</span>.
+              Specializing in secure, high-performance systems.
+            </p>
 
-          {/* Tagline */}
-          <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold text-muted-foreground mb-8 animate-slide-up opacity-0 stagger-2">
-            I build <span className="text-gradient">scalable backend systems</span>
-          </h2>
+            <div className="flex items-center justify-center gap-2 text-gray-400 font-bold text-xs uppercase tracking-widest">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Hyderabad, India</span>
+            </div>
+          </div>
 
-          {/* Bio */}
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up opacity-0 stagger-3">
-            Python Developer specializing in Django and REST API development. 
-            I transform complex requirements into clean, maintainable code that powers 
-            real-world applications.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up opacity-0 stagger-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 glow-primary px-8">
-              View My Work
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-reveal stagger-4">
+            <Button size="lg" className="w-full sm:w-auto bg-gray-900 hover:bg-black text-white h-14 px-10 rounded-2xl flex items-center justify-center gap-3 shadow-premium transition-all hover:scale-105 active:scale-95" asChild>
+              <a href="#projects">
+                <Sparkles className="w-5 h-5" />
+                Explore Projects
+              </a>
             </Button>
-            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-              Get In Touch
+            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white h-14 px-10 rounded-2xl font-bold shadow-lg shadow-blue-500/20 transition-all hover:scale-105 active:scale-95 group" asChild>
+              <a href="#contact" className="flex items-center gap-2 justify-center">
+                Start a Project
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-6 animate-slide-up opacity-0 stagger-5">
-            <a
-              href="https://github.com/gdurgaprasad03"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/g-durga-prasad-a65b3a25b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-              href="mailto:gdurgaprasad065@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-          </div>
-        </div>
+          {/* Tech stack & Scroll hint */}
+          <div className="pt-12 space-y-8 animate-reveal" style={{ animationDelay: '0.6s' }}>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {techPills.map((pill) => (
+                <div 
+                  key={pill.name}
+                  className="px-4 md:px-5 py-2 rounded-xl bg-gray-50 border border-gray-100 text-gray-500 text-[10px] md:text-[11px] font-black uppercase tracking-wider hover:bg-white hover:text-blue-600 hover:border-blue-200 transition-all cursor-default hover:shadow-soft hover-lift"
+                >
+                  {pill.name}
+                </div>
+              ))}
+            </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-6 h-6 text-muted-foreground" />
+            <div className="flex flex-col items-center gap-3 text-gray-300">
+              <div className="w-px h-12 bg-gradient-to-b from-gray-200 to-transparent" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
