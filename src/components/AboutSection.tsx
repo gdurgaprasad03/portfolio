@@ -50,40 +50,49 @@ const AboutSection = () => {
               </div>
 
               <h2 className="text-4xl md:text-6xl font-black font-heading leading-none text-gray-900 tracking-tighter">
-                Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500 ">Robust</span> Backend Systems.
+                Architecting{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500 ">
+                  Robust
+                </span>{" "}
+                Backend Systems.
               </h2>
 
               <div className="space-y-4 text-gray-500 text-base md:text-lg leading-relaxed font-medium">
                 <p>
-                  I'm a Python Developer based in Hyderabad, specializing in the design and implementation of 
+                  I'm a Python Developer based in Hyderabad, specializing in the design and implementation of
                   enterprise-grade architectures. My focus lies at the intersection of performance and scalability.
                 </p>
                 <p>
-                  At Sria Infotech, I engineer scalable APIs and manage complex database operations using 
-                  <span className="text-gray-900 font-bold"> Django & REST frameworks</span>. I believe in clean code 
+                  At Sria Infotech, I engineer scalable APIs and manage complex database operations using
+                  <span className="text-gray-900 font-bold"> Django & REST frameworks</span>. I believe in clean code
                   as a foundation for long-term project success.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 pt-2">
-                <Button 
-                  className="bg-gray-900 hover:bg-black text-white px-8 h-12 rounded-2xl flex items-center gap-2 shadow-premium transition-all hover:scale-105 active:scale-95"
-                  onClick={() => {
-                    const link = document.createElement('a');
-                    link.href = '/resume.pdf'; // Ensure the file is in public/resume.pdf
-                    link.download = 'G_Durga_Prasad_CV.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
-                >
-                  <Download className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase tracking-wider">Download CV</span>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-gray-200 hover:border-gray-900 text-gray-700 px-8 h-12 rounded-2xl flex items-center gap-2 transition-all hover:bg-gray-50 active:scale-95" 
-                  onClick={() => window.open("https://www.linkedin.com/in/g-durga-prasad-a65b3a25b")}
+                
+                <Button
+  className="bg-gray-900 hover:bg-black text-white px-8 h-12 rounded-2xl flex items-center gap-2 shadow-premium transition-all hover:scale-105 active:scale-95"
+  onClick={() => {
+    const link = document.createElement("a");
+    link.href = `${import.meta.env.BASE_URL}resume.pdf`; // ← PROPER FIX
+    link.download = "G_Durga_Prasad_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }}
+>
+  <Download className="w-4 h-4" />
+  <span className="text-xs font-bold uppercase tracking-wider">Download CV</span>
+</Button>
+
+
+                <Button
+                  variant="outline"
+                  className="border-gray-200 hover:border-gray-900 text-gray-700 px-8 h-12 rounded-2xl flex items-center gap-2 transition-all hover:bg-gray-50 active:scale-95"
+                  onClick={() =>
+                    window.open("https://www.linkedin.com/in/g-durga-prasad-a65b3a25b")
+                  }
                 >
                   <Linkedin className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">LinkedIn</span>
@@ -96,9 +105,13 @@ const AboutSection = () => {
               {infoCards.map((card, idx) => (
                 <div
                   key={card.title}
-                  className={`p-6 rounded-[2rem] bg-white border border-gray-100 shadow-soft transition-all duration-500 hover:shadow-premium hover-lift animate-reveal stagger-${(idx % 4) + 1}`}
+                  className={`p-6 rounded-[2rem] bg-white border border-gray-100 shadow-soft transition-all duration-500 hover:shadow-premium hover-lift animate-reveal stagger-${
+                    (idx % 4) + 1
+                  }`}
                 >
-                  <div className={`w-12 h-12 rounded-2xl ${card.bgColor} flex items-center justify-center mb-5`}>
+                  <div
+                    className={`w-12 h-12 rounded-2xl ${card.bgColor} flex items-center justify-center mb-5`}
+                  >
                     <card.icon className={`w-6 h-6 ${card.iconColor}`} />
                   </div>
                   <div className="space-y-1">
