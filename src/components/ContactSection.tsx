@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Mail, MapPin, Phone, Send, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const API_URL = "http://127.0.0.1:8000/api/contact/";
+const API_URL = "http://127.0.0.1:8000/contact/";
 
 const ContactSection = () => {
   const [form, setForm] = useState({
@@ -32,9 +32,18 @@ const ContactSection = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json",
         },
         body: JSON.stringify(form),
       });
+
+      // Check if response is actually JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const text = await response.text();
+        console.error("Non-JSON response received:", text);
+        throw new Error("Backend server error: Received HTML instead of JSON. Ensure your Django server is running and the endpoint is correct.");
+      }
 
       const data = await response.json();
 
@@ -56,10 +65,11 @@ const ContactSection = () => {
         message: "",
       });
     } catch (error) {
+      console.error("Form submission error:", error);
       setStatus({
         loading: false,
         success: "",
-        error: error.message || "Something went wrong. Please try again.",
+        error: error.message || "Something went wrong. Please check if your backend server is running.",
       });
     }
   };
