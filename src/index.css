@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    /* Modern Professional Palette - Unified Blue-Emerald Theme */
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    /* Premium Midnight Sapphire Dark Theme */
+    --background: 222 47% 7%;      /* Extremely Deep Navy Blue (#090D14) */
+    --foreground: 210 40% 98%;     /* Pure crisp white */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 222 47% 10%;           /* Slightly lighter navy (#0e1522) */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222 47% 11%; /* Midnight Navy */
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;        /* White buttons / accents */
+    --primary-foreground: 222 47% 7%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;      /* Highlight surfaces */
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%; /* Soft slate gray */
 
-    --accent: 217 91% 60%; /* Professional Blue */
+    --accent: 199 89% 48%;         /* Bright Sky Blue / Cyan Accent */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222 47% 11%;
+    --border: 217 33% 17%;         /* Subtle dark blue lines */
+    --input: 217 33% 17%;
+    --ring: 199 89% 48%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
 
-    /* Premium Design Tokens */
-    --gradient-professional: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    --gradient-brand: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-    --shadow-premium: 0 20px 50px -12px rgba(15, 23, 42, 0.1);
-    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.04);
+    /* Next Gen Tokens */
+    --gradient-professional: linear-gradient(135deg, #0ea5e9, #6366f1);
+    --gradient-brand: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+    --shadow-premium: 0 0 50px -15px rgba(14, 165, 233, 0.25);
+    --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
     
     --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -75,7 +75,7 @@
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-soft;
+    @apply bg-card/60 backdrop-blur-md border border-white/10 shadow-soft transition-all duration-300;
   }
 
   .hover-lift {
@@ -116,26 +116,26 @@
   50% { transform: translateY(-15px); }
 }
 
-/* Professional Light Scrollbar */
+/* Professional Dark Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 5px;
-  border: 2px solid #f1f1f1;
+  background: hsl(var(--secondary));
+  border-radius: 10px;
+  border: 2px solid hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: hsl(var(--accent));
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.1);
-  color: #1a1c1e;
+  background: hsl(var(--accent) / 0.2);
+  color: hsl(var(--foreground));
 }
